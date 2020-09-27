@@ -60,3 +60,64 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # huel
+Create Laravel app’ -  7.28.3
+
+PHP 7.4.10 
+
+Run composer update
+
+Run git init
+
+Set remote url:
+git remote set-url origin https://github.com/adrian-test/huel.git
+
+git pull
+
+create .env file from sample
+
+set DB details
+
+add following lines to end of .env file
+SHOPIFY_API_KEY=ec1051c7bc414b9c15daa1e963345d0a
+SHOPIFY_API_PASS=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
+SHOPIFY_SHOP_URL=technical-be-74176.myshopify.com
+SHOPIFY_API_VERSION=2020-07
+
+run php artisan migrate
+
+Should be good to go.
+
+To get, from Shopify store and save customer, orders and products to a third party database ( MySQL ):
+
+Orders:
+{local Laravel App}/api/orders/populate
+
+Products:
+{local Laravel App}/api/products/populate
+
+Customers:
+{local Laravel App}/api/customers/populate
+
+API’s
+
+Return the mean average order value across all customers
+{local Laravel App}/api/orders/avg-value-all
+returns 	value, 200 
+Or 		fail, 404
+
+
+Return the mean average order value of a specific customer
+{local Laravel App}/api/avg-order-value/{email}
+example email - 8472a98cf8356c93178a62dafd01d135_BHXTEST@huel.io
+returns 	value, 200 
+Or 		fail, 404
+
+
+Return the mean average order value of a specific variant
+
+{local Laravel App}/api/orders/avg-value-variant/{variant}
+example  variant id’s:
+34783705858214
+34783639634086
+returns 	value, 200 
+Or 		fail, 404

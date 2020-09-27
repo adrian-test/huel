@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// for testing populate orders database
+Route::get('orders/populate', 'API\OrderController@getShopifyOrders');
+
+// for testing populate orders database
+Route::get('products/populate', 'API\ProductController@getShopifyProducts');
+
+// for testing populate orders database
+Route::get('customers/populate', 'API\CustomerController@getShopifyCustomers');
+
+
+
+Route::get('orders/avg-value-all', 'API\OrderController@avgValueAll');
+
+Route::get('orders/avg-value/{email}', 'API\OrderController@avgValue');
+
+Route::get('orders/avg-value-variant/{variant}', 'API\OrderController@avgValueVariant');
